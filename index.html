@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tony Yang| Professional Insurance Broker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .lang-switch {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--dark);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 60px;
+            color: rgba(46, 134, 193, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .social-link {
+            font-size: 24px; /* 圖示大小 */
+            color: #333; /* 預設顏色 */
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: #ffffff; /* 滑鼠懸停顏色，這是 Facebook 的藍色 */
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <script src="https://code.iconify.design/2/2.0.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('-yPFKruhHVNAF5Nfn');
+        })();
+      </script>      
+</head>
+<body>
+    <!-- English Version -->
+    <div id="en-version">
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">
+                        <span class="logo-icon">🛡️</span>
+                        <span>Tony Yang Insurance</span>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><button class="lang-switch" onclick="switchLanguage()">中文</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Protection, My Priority</h1>
+                    <p>Professional insurance brokerage services tailored to your unique needs and circumstances.</p>
+                    <a href="https://calendly.com/tyanggoldinsurance/30min" target="_blank" class="cta-button">Schedule a Free Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="/api/placeholder/600/600" alt="Tony Yang, Insurance Broker">
+                    </div>
+                    <div class="about-text">
+                        <h3>Tony Yang - Professional Insurance Broker</h3>
+                        <p>With over 15 years of experience in the insurance industry, I specialize in finding the perfect coverage solutions for individuals, families, and businesses.</p>
+                        <p>My mission is to simplify the complex world of insurance and provide you with personalized options that offer maximum protection at competitive rates.</p>
+                        <p>As an independent broker, I work for you, not the insurance companies. This means I can shop around and negotiate on your behalf to find the best policies that match your unique needs.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1,200+</div>
+                                <div class="stat-label">Clients Served</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Client Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">My Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Home Insurance</h3>
+                        <p>Comprehensive protection for your most valuable asset. Coverage options for homeowners, renters, and landlords.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚗</div>
+                        <h3>Auto Insurance</h3>
+                        <p>From basic liability to full comprehensive coverage, ensuring you're protected on the road.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">❤️</div>
+                        <h3>Life & Health Insurance</h3>
+                        <p>Safeguard your family's financial future and ensure quality healthcare access when you need it most.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>Business Insurance</h3>
+                        <p>Customized protection for businesses of all sizes, from startups to established enterprises.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏆</div>
+                        <h3>Specialized Coverage</h3>
+                        <p>Unique insurance solutions for specific needs including travel, pet, and high-value items.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Insurance Portfolio Review</h3>
+                        <p>Comprehensive analysis of your existing policies to identify gaps and opportunities for savings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">Client Testimonials</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "Tony saved us thousands on our insurance premiums while actually improving our coverage. His knowledge and dedication to finding the best options for our family made all the difference."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="/api/placeholder/60/60" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Family Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "As a small business owner, I was overwhelmed by insurance options. Tony simplified everything and found comprehensive coverage that protected my business without breaking the bank."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="/api/placeholder/60/60" alt="Michael Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h3>Call or Text</h3>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>tyanggoldinsurance@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>Office</h3>
+                                <p>3600 Lysander Ln #120, Richmond<br> BC V7B 1C3</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <h3>Office Hours</h3>
+                                <p>Monday-Friday: 9am-5pm<br>Saturday, Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance-type">Insurance Type</label>
+                                <select id="insurance-type" class="form-control">
+                                    <option value="">Select Insurance Type</option>
+                                    <option value="home">Home Insurance</option>
+                                    <option value="auto">Auto Insurance</option>
+                                    <option value="life">Life Insurance</option>
+                                    <option value="health">Health Insurance</option>
+                                    <option value="business">Business Insurance</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-link"><span class="iconify" data-icon="simple-icons:xiaohongshu" style="font-size: 30px;"></span></a>
+                    <a href="#" class="social-link"><span class="iconify" data-icon="prime:twitter" style="font-size: 24px;"></span></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>          
+                </div>
+                <div class="footer-nav">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Tony Yang Insurance Broker. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Chinese Version -->
+    <div id="zh-version" class="hidden">
+        <header>
+            <div class="container">
+                <nav>
+                    <div class="logo">
+                        <span class="logo-icon">🛡️</span>
+                        <span>杨托尼保险代理</span>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#about">关于我</a></li>
+                        <li><a href="#services">服务</a></li>
+                        <li><a href="#testimonials">客户评价</a></li>
+                        <li><a href="#contact">联系方式</a></li>
+                        <li><button class="lang-switch" onclick="switchLanguage()">English</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>您的保障，我的责任</h1>
+                    <p>专业保险经纪服务，根据您的独特需求和情况量身定制。</p>
+                    <a href="https://calendly.com/tyanggoldinsurance/30min" target="_blank" class="cta-button">免費諮詢</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">关于我</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="/api/placeholder/600/600" alt="陈安，保险经纪人">
+                    </div>
+                    <div class="about-text">
+                        <h3>杨托尼 - 专业保险经纪人</h3>
+                        <p>拥有超过15年的保险行业经验，我专注于为个人、家庭和企业找到完美的保险解决方案。</p>
+                        <p>我的使命是简化复杂的保险世界，为您提供个性化的选择，以具有竞争力的价格提供最大的保障。</p>
+                        <p>作为独立的经纪人，我为您服务，而不是为保险公司服务。这意味着我可以货比三家，并代表您进行谈判，找到最适合您独特需求的保险政策。</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">年经验</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1,200+</div>
+                                <div class="stat-label">服务客户</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">客户满意度</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">我的服务</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>房屋保险</h3>
+                        <p>为您最有价值的资产提供全面保护。为房主、租户和房东提供保险选择。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚗</div>
+                        <h3>汽车保险</h3>
+                        <p>从基本责任到全面综合保险，确保您在道路上受到保护。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">❤️</div>
+                        <h3>人寿和健康保险</h3>
+                        <p>保障您家人的财务未来，确保在您最需要时获得优质医疗服务。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>商业保险</h3>
+                        <p>为各种规模的企业量身定制保护，从初创企业到成熟企业。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏆</div>
+                        <h3>专业保险</h3>
+                        <p>为特定需求提供独特保险解决方案，包括旅行、宠物和高价值物品。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>保险组合审查</h3>
+                        <p>对您现有保单进行全面分析，识别保障缺口和节省机会。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">客户评价</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "杨托尼为我们节省了数千元的保险费，同时还提高了我们的保障。他对寻找最适合我们家庭的选择的知识和奉献精神产生了巨大的影响。"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="/api/placeholder/60/60" alt="莎拉·约翰逊">
+                            </div>
+                            <div class="author-info">
+                                <h4>莎拉·约翰逊</h4>
+                                <p>家庭客户</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            "作为一个小企业主，我被保险选择压得喘不过气来。杨托尼简化了一切，找到了全面的保障，保护了我的业务，而且不会花费太多。"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="/api/placeholder/60/60" alt="迈克尔·罗德里格斯">
+                            </div>
+                            <div class="author-info">
+                                <h4>迈克尔·罗德里格斯</h4>
+                                <p>企业主</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">联系我</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h3>电话或短信</h3>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h3>电子邮箱</h3>
+                                <p>tyanggoldinsurance@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>办公地址</h3>
+                                <p>3600 Lysander Ln #120, Richmond<br> BC V7B 1C3</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <h3>办公时间</h3>
+                                <p>周一至周五：上午9点至下午5点<br>周六、周日：休息</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form-zh">
+                            <div class="form-group">
+                                <label for="name-zh">姓名</label>
+                                <input type="text" id="name-zh" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-zh">电子邮箱</label>
+                                <input type="email" id="email-zh" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone-zh">电话</label>
+                                <input type="tel" id="phone-zh" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance-type-zh">保险类型</label>
+                                <select id="insurance-type-zh" class="form-control">
+                                    <option value="">选择保险类型</option>
+                                    <option value="home">房屋保险</option>
+                                    <option value="auto">汽车保险</option>
+                                    <option value="life">人寿保险</option>
+                                    <option value="health">健康保险</option>
+                                    <option value="business">商业保险</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-zh">留言</label>
+                                <textarea id="message-zh" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" id="submit-btn">发送信息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-redbook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>                    
+                </div>
+                <div class="footer-nav">
+                    <a href="#about">关于我</a>
+                    <a href="#services">服务</a>
+                    <a href="#testimonials">客户评价</a>
+                    <a href="#contact">联系方式</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 杨托尼保险代理。保留所有权利。
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function switchLanguage() {
+            const enVersion = document.getElementById('en-version');
+            const zhVersion = document.getElementById('zh-version');
+            
+            if (enVersion.classList.contains('hidden')) {
+                enVersion.classList.remove('hidden');
+                zhVersion.classList.add('hidden');
+            } else {
+                enVersion.classList.add('hidden');
+                zhVersion.classList.remove('hidden');
+            }
+            
+            // Scroll back to top when switching languages
+            window.scrollTo(0, 0);
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation for scrolling elements into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.section-title, .about-content, .service-card, .testimonial').forEach(element => {
+            element.style.opacity = '0';
+            observer.observe(element);
+        });
+
+        const formZh = document.getElementById('contact-form-zh');
+        if (formZh) {
+            formZh.addEventListener('submit', function(event) {
+            event.preventDefault();
+            sendEmail('zh');
+            });
+        }
+
+        // 英文版
+        const formEn = document.getElementById('contact-form');
+        if (formEn) {
+            formEn.addEventListener('submit', function(event) {
+            event.preventDefault();
+            sendEmail('en');
+            });
+        }
+
+        function validateFields(name, email, message, isChinese) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name) {
+            alert(isChinese ? '请输入姓名。' : 'Please enter your name.');
+            return false;
+            }
+            if (!email) {
+            alert(isChinese ? '请输入电子邮箱。' : 'Please enter your email.');
+            return false;
+            }
+            if (!emailRegex.test(email)) {
+            alert(isChinese ? '电子邮箱格式不正确。' : 'Invalid email format.');
+            return false;
+            }
+            if (!message) {
+            alert(isChinese ? '请输入留言信息。' : 'Please enter your message.');
+            return false;
+            }
+            return true;
+        }
+
+        async function sendEmail(language) {
+            const isChinese = (language === 'zh');
+
+            const name = document.getElementById(isChinese ? 'name-zh' : 'name').value.trim();
+            const email = document.getElementById(isChinese ? 'email-zh' : 'email').value.trim();
+            const phone = document.getElementById(isChinese ? 'phone-zh' : 'phone').value.trim();
+            const insuranceType = document.getElementById(isChinese ? 'insurance-type-zh' : 'insurance-type').value.trim();
+            const message = document.getElementById(isChinese ? 'message-zh' : 'message').value.trim();
+
+            if (!validateFields(name, email, message, isChinese)) {
+                return;
+            }
+
+            const templateParamsNotify = {
+            name: name,
+            email: email,
+            phone: phone,
+            insurance_type: insuranceType,
+            message: message
+            };
+
+            try {
+            // 先寄通知信到自己
+            await emailjs.send('service_v1uq7gf', 'template_y4yh5ja', templateParamsNotify);
+
+            alert(isChinese ? '信息发送成功！谢谢您的联系。' : 'Your message has been sent successfully. Thank you!');
+            
+            if (isChinese) {
+                document.getElementById('contact-form-zh').reset();
+            } else {
+                document.getElementById('contact-form').reset();
+            }
+
+            } catch (error) {
+                console.error('发送失败:', error);
+                alert(isChinese ? '信息发送失败，请稍后再试。' : 'Message failed to send. Please try again later.');
+            }
+        }
+    </script>
+</body>
+</html>
